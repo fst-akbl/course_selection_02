@@ -148,7 +148,7 @@
 				<div class="col-md-12">
 					<div class="white-box">
 						<div style="text-align: left; font-size: 150%;width: 500px;margin: 2% auto">
-							<form action="findT" method="post">
+							<form>
 								实验：
 								<select id="eid" name="eid">
 									<option value ="0">--请选择--</option>
@@ -194,7 +194,7 @@
 									<option value ="2">5-8</option>
 								</select>
 								<br/>
-								任课教师：<input type="text" id="tname" name="tname" value="" style="width: 150px;height: 25px" >
+								任课教师：<span id="tname" style="width: 150px"></span>
 								<br/>
 								<button type="button" id="c" onclick="f()">提交</button>
 							</form>
@@ -240,7 +240,9 @@
             success: function(data,status) {
                 console.log(data);
                 console.log(status);
-                $("#tname").val(data);
+                var t="";
+                t+="<b>"+data+"</b>";
+                $("#tname").html(t);
             }
         });
     }
